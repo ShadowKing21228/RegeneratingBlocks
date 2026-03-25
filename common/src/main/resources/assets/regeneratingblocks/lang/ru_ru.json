@@ -1,0 +1,6 @@
+{
+  "block.regeneratingblocks.regen_block": "Регенерирующийся блок",
+  "tooltip.regeneratingblocks.morphto" : "Станет: ",
+  "tooltip.regeneratingblocks.second" : " сек.",
+  "tooltip.regeneratingblocks.time" : "Время: "
+}

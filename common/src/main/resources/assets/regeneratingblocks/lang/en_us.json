@@ -1,0 +1,6 @@
+{
+  "block.regeneratingblocks.regen_block": "Regenerating Block",
+  "tooltip.regeneratingblocks.morphto" : "Become: ",
+  "tooltip.regeneratingblocks.second" : " sec.",
+  "tooltip.regeneratingblocks.time" : "Time: "
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "regeneratingblocks",
+  "version": "${version}",
+  "name": "Regenerating Blocks",
+  "description": "",
+  "authors": [
+    "ShadowKing21"
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/regeneratingblocks/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.shadowking21.regeneratingblocks.fabric.RegeneratingBlocksFabric"
+    ],
+    "client": [
+      "net.shadowking21.regeneratingblocks.fabric.client.RegeneratingBlocksFabricClient"
+    ]
+  },
+  "mixins": [
+    "regeneratingblocks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "architectury": ">=9.2.14",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

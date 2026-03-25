@@ -84,4 +84,19 @@ public class RegeneratingBlockEntity extends BlockEntity implements BlockEntityT
         this.timer = nbt.getInt("Timer");
         this.targetBlockId = nbt.getString("TargetBlock");
     }
+
+    public int getCurrentTime()
+    {
+        return currentTime;
+    }
+
+    public int getTimer()
+    {
+        return timer;
+    }
+
+    public String getTargetBlock()
+    {
+        return targetBlockId;
+    }
 }

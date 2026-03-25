@@ -2,5 +2,6 @@
   "block.regeneratingblocks.regen_block": "Regenerating Block",
   "tooltip.regeneratingblocks.morphto" : "Become: ",
   "tooltip.regeneratingblocks.second" : " sec.",
-  "tooltip.regeneratingblocks.time" : "Time: "
+  "tooltip.regeneratingblocks.time" : "Time: ",
+  "jade.regeneratingblocks.remain" : "Remain: "
 }

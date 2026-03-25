@@ -74,13 +74,13 @@ public class RegeneratingBlock extends Block implements EntityBlock {
                 .append(Component.translatable("tooltip.regeneratingblocks.second").withStyle(ChatFormatting.AQUA)));
     }
 
-    private String getRegenerateBlock(ItemStack itemStack)
+    public String getRegenerateBlock(ItemStack itemStack)
     {
         var tag = itemStack.getTag();
         return tag != null && tag.contains("TargetBlock", Tag.TAG_STRING) ? tag.getString("TargetBlock") : defaultBlock;
     }
 
-    private int getRegenerateTimer(ItemStack itemStack)
+    public int getRegenerateTimer(ItemStack itemStack)
     {
         var tag = itemStack.getTag();
         return tag != null && tag.contains("Timer", Tag.TAG_INT) ? tag.getInt("Timer") : defaultTimer;

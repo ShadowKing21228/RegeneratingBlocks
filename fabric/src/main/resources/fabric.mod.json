@@ -19,6 +19,9 @@
     ],
     "client": [
       "net.shadowking21.regeneratingblocks.fabric.client.RegeneratingBlocksFabricClient"
+    ],
+    "jade": [
+      "net.shadowking21.regeneratingblocks.fabric.integration.jade.RegenBlockWailaPlugin"
     ]
   },
   "mixins": [

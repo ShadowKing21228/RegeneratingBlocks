@@ -1,8 +1,7 @@
 package net.shadowking21.regeneratingblocks.fabric.integration.jade;
 
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
+import net.shadowking21.regeneratingblocks.blockentities.RegeneratingBlockEntity;
 import net.shadowking21.regeneratingblocks.blocks.RegeneratingBlock;
 import snownee.jade.api.IWailaClientRegistration;
 import snownee.jade.api.IWailaCommonRegistration;
@@ -15,7 +14,7 @@ public class RegenBlockWailaPlugin implements IWailaPlugin {
     public static ResourceLocation regenBlockProviderId = new ResourceLocation("regeneratingblocks","regen_block_tooltip");
     @Override
     public void register(IWailaCommonRegistration registration) {
-
+        registration.registerBlockDataProvider(RegenBlockComponentProvider.INSTANCE, RegeneratingBlockEntity.class);
     }
 
     @Override

@@ -3,5 +3,6 @@
   "tooltip.regeneratingblocks.morphto" : "Become: ",
   "tooltip.regeneratingblocks.second" : " sec.",
   "tooltip.regeneratingblocks.time" : "Time: ",
+  "commands.regeneratingblocks.success": "Given %s regenerating block(s) with target %s and timer %s ticks",
   "jade.regeneratingblocks.remain" : "Remain: "
 }

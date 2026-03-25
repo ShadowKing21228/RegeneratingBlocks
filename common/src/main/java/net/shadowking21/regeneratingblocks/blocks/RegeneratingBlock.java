@@ -62,7 +62,7 @@ public class RegeneratingBlock extends Block implements EntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
         String blockId = getRegenerateBlock(stack);
-        int seconds = getRegenerateTimer(stack) / 20; // Переводим тики в секунды
+        float seconds = (float) getRegenerateTimer(stack) / 20; // Переводим тики в секунды
 
         Block target = BuiltInRegistries.BLOCK.get(new ResourceLocation(blockId));
 

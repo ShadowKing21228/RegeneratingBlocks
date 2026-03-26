@@ -8,7 +8,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Marker;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,7 +15,7 @@ import net.shadowking21.regeneratingblocks.registry.BlockEntityRegistry;
 
 public class RegeneratingBlockEntity extends BlockEntity implements BlockEntityTicker<RegeneratingBlockEntity> {
 
-    public int timer = 20;
+    public int timer = 1200;
 
     private int currentTime = timer;
 

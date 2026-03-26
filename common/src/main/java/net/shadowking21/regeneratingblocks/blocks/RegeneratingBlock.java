@@ -24,9 +24,9 @@ import java.util.List;
 
 public class RegeneratingBlock extends Block implements EntityBlock {
 
-    public final String defaultBlock = "minecraft:cobblestone";
+    public static final String DEFAULT_BLOCK = "minecraft:cobblestone";
 
-    public final int defaultTimer = 20; //1200
+    public static final int DEFAULT_TIMER = 1200;
 
     public RegeneratingBlock(Properties properties) {
         super(properties);
@@ -77,13 +77,13 @@ public class RegeneratingBlock extends Block implements EntityBlock {
     public String getRegenerateBlock(ItemStack itemStack)
     {
         var tag = itemStack.getTag();
-        return tag != null && tag.contains("TargetBlock", Tag.TAG_STRING) ? tag.getString("TargetBlock") : defaultBlock;
+        return tag != null && tag.contains("TargetBlock", Tag.TAG_STRING) ? tag.getString("TargetBlock") : DEFAULT_BLOCK;
     }
 
     public int getRegenerateTimer(ItemStack itemStack)
     {
         var tag = itemStack.getTag();
-        return tag != null && tag.contains("Timer", Tag.TAG_INT) ? tag.getInt("Timer") : defaultTimer;
+        return tag != null && tag.contains("Timer", Tag.TAG_INT) ? tag.getInt("Timer") : DEFAULT_TIMER;
     }
 
 

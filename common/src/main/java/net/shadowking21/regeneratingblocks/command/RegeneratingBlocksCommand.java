@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.shadowking21.regeneratingblocks.registry.BlockRegistry;
+import net.shadowking21.regeneratingblocks.utils.RBUtils;
 
 import java.util.Collection;
 
@@ -45,7 +46,7 @@ public class RegeneratingBlocksCommand {
         // Записываем данные в NBT (точно так же, как делает твой BlockEntity при размещении)
         CompoundTag tag = stack.getOrCreateTag();
 
-        tag.putString("TargetBlock", blockInput.getState().getBlock().builtInRegistryHolder().key().location().toString());
+        tag.putString("TargetBlock", RBUtils.getNameOfBlock(blockInput.getState().getBlock()));
 
         tag.putInt("Timer", timer);
 

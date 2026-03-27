@@ -18,15 +18,16 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.shadowking21.regeneratingblocks.blockentities.RegeneratingBlockEntity;
+import net.shadowking21.regeneratingblocks.config.RBConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class RegeneratingBlock extends Block implements EntityBlock {
 
-    public static final String DEFAULT_BLOCK = "minecraft:cobblestone";
+    public static final String DEFAULT_BLOCK = RBConfig.config.get().defaultBlock;
 
-    public static final int DEFAULT_TIMER = 1200;
+    public static final int DEFAULT_TIMER = RBConfig.config.get().defaultTimer;
 
     public RegeneratingBlock(Properties properties) {
         super(properties);
@@ -62,7 +63,7 @@ public class RegeneratingBlock extends Block implements EntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
         String blockId = getRegenerateBlock(stack);
-        float seconds = (float) getRegenerateTimer(stack) / 20; // Переводим тики в секунды
+        float seconds = (float) getRegenerateTimer(stack) / 20;
 
         Block target = BuiltInRegistries.BLOCK.get(new ResourceLocation(blockId));
 

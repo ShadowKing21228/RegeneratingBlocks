@@ -33,7 +33,8 @@
     "java": ">=17",
     "architectury": ">=9.2.14",
     "fabric-api": "*",
-    "jade": "*"
+    "jade": "*",
+    "shadowconfig": "*"
   },
   "suggests": {
     "another-mod": "*"

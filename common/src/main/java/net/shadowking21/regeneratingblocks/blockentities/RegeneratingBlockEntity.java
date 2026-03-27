@@ -11,15 +11,17 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
+import net.shadowking21.regeneratingblocks.blocks.RegeneratingBlock;
+import net.shadowking21.regeneratingblocks.config.RBConfig;
 import net.shadowking21.regeneratingblocks.registry.BlockEntityRegistry;
 
 public class RegeneratingBlockEntity extends BlockEntity implements BlockEntityTicker<RegeneratingBlockEntity> {
 
-    public int timer = 1200;
+    private String targetBlockId = RBConfig.config.get().defaultBlock;
+
+    public int timer = RegeneratingBlock.DEFAULT_TIMER;
 
     private int currentTime = timer;
-
-    private String targetBlockId = "minecraft:air";
 
     public RegeneratingBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.REGEN_BLOCK_ENTITY.get(), pos, state);
@@ -30,32 +32,27 @@ public class RegeneratingBlockEntity extends BlockEntity implements BlockEntityT
 
         be.currentTime--;
         if (be.currentTime <= 0) {
-            // 1. Ставим финальный блок (например, Алмазную руду)
+
             Block target = BuiltInRegistries.BLOCK.get(new ResourceLocation(be.targetBlockId));
             level.setBlockAndUpdate(pos, target.defaultBlockState());
 
-            // 2. Ставим "Знак" (Маркер), чтобы знать, что после поломки руды её надо вернуть
+
             Marker anchor = EntityType.MARKER.create(level);
             if (anchor != null) {
-                // 1. Устанавливаем позицию (центр блока)
                 anchor.setPos(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
 
-                // 2. Сначала добавляем в мир, чтобы у сущности появились UUID и мир
                 level.addFreshEntity(anchor);
 
-                // 3. Теперь безопасно обновляем NBT
                 CompoundTag fullNbt = new CompoundTag();
-                anchor.saveWithoutId(fullNbt); // Сохраняем текущее состояние (с позицией!)
+                anchor.saveWithoutId(fullNbt);
 
                 CompoundTag customData = new CompoundTag();
                 customData.putBoolean("IsRegeneratingPoint", true);
                 customData.putString("TargetBlock", be.targetBlockId);
                 customData.putInt("RegenTimer", be.timer);
 
-                // Кладем наши данные в "data"
                 fullNbt.put("data", customData);
 
-                // Загружаем обратно. Теперь позиция в fullNbt правильная, и она не сбросится.
                 anchor.load(fullNbt);
             }
         }

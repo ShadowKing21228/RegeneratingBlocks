@@ -24,7 +24,7 @@ public class RegeneratingBlocksCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext buildContext) {
         dispatcher.register(
                 Commands.literal("regeneratingblocks")
-                        .requires(source -> source.hasPermission(2)) // уровень 2 = как /give
+                        .requires(source -> source.hasPermission(2))
                         .then(Commands.argument("target", EntityArgument.players())
                                 .then(Commands.argument("block", BlockStateArgument.block(buildContext))
                                         .then(Commands.argument("timer", IntegerArgumentType.integer(1))
@@ -40,10 +40,8 @@ public class RegeneratingBlocksCommand {
         BlockInput blockInput = BlockStateArgument.getBlock(context, "block");
         int timer = IntegerArgumentType.getInteger(context, "timer");
 
-        // Получаем ItemStack твоего regenerating block
-        ItemStack stack = new ItemStack(BlockRegistry.REGEN_BLOCK_ITEM.get()); // или как у тебя называется RegistryObject<Item>
+        ItemStack stack = new ItemStack(BlockRegistry.REGEN_BLOCK_ITEM.get());
 
-        // Записываем данные в NBT (точно так же, как делает твой BlockEntity при размещении)
         CompoundTag tag = stack.getOrCreateTag();
 
         tag.putString("TargetBlock", RBUtils.getNameOfBlock(blockInput.getState().getBlock()));
@@ -56,7 +54,6 @@ public class RegeneratingBlocksCommand {
             if (player.getInventory().add(copy)) {
                 countGiven++;
             } else {
-                // если инвентарь полон — дропаем на землю
                 player.drop(copy, false);
             }
         }

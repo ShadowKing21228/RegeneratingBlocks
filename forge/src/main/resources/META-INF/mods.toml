@@ -35,6 +35,13 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.regeneratingblocks]]
+modId="shadowconfig"
+mandatory=true
+versionRange="[0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.regeneratingblocks]]
 modId="jade"
 mandatory=false
 versionRange="[0,)"

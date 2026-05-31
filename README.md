@@ -1,3 +1,5 @@
+![Regenerating Blocks logo](fabric/src/main/resources/assets/regeneratingblocks/icon.png)
+
 # Regenerating Blocks
 
 Regenerating Blocks is a cross-loader Minecraft mod for **Fabric** and **Forge** that adds a special block which can regenerate into another block after a delay.

@@ -12,12 +12,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.shadowking21.regeneratingblocks.blocks.RegeneratingBlock;
-import net.shadowking21.regeneratingblocks.config.RBConfig;
+import net.shadowking21.regeneratingblocks.config.ConfigInit;
 import net.shadowking21.regeneratingblocks.registry.BlockEntityRegistry;
 
 public class RegeneratingBlockEntity extends BlockEntity implements BlockEntityTicker<RegeneratingBlockEntity> {
 
-    private String targetBlockId = RBConfig.config.get().defaultBlock;
+    private String targetBlockId = ConfigInit.config.get().defaultBlock;
 
     public int timer = RegeneratingBlock.DEFAULT_TIMER;
 

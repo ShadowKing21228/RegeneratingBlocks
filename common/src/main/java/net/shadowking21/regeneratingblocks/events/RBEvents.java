@@ -29,7 +29,6 @@ public class RBEvents {
         BlockEvent.BREAK.register((level, blockPos, blockState, serverPlayer, intValue) -> {
             if (level.isClientSide) return EventResult.pass();
 
-            // 1. Ищем маркер (с небольшим запасом по области)
             List<Marker> markers = level.getEntitiesOfClass(Marker.class, new AABB(blockPos).inflate(0.2));
 
             if (markers.isEmpty()) return EventResult.pass();
@@ -43,23 +42,20 @@ public class RBEvents {
 
                     if (customData.getBoolean("IsRegeneratingPoint")) {
 
-                        // --- КЛЮЧЕВОЙ МОМЕНТ: ВЫПАДЕНИЕ РЕСУРСОВ ---
-                        // Мы вызываем дроп ДО замены блока.
-                        // Параметры: (состояние, мир, позиция, BlockEntity, игрок, предмет в руке)
-                        Block.dropResources(
-                                blockState,
-                                level,
-                                blockPos,
-                                level.getBlockEntity(blockPos),
-                                serverPlayer,
-                                serverPlayer.getMainHandItem()
-                        );
-                        // -------------------------------------------
+                        if (!serverPlayer.isCreative()) {
+                            Block.dropResources(
+                                    blockState,
+                                    level,
+                                    blockPos,
+                                    level.getBlockEntity(blockPos),
+                                    serverPlayer,
+                                    serverPlayer.getMainHandItem()
+                            );
+                        }
 
                         String target = customData.getString("TargetBlock");
                         int timer = customData.getInt("RegenTimer");
 
-                        // Ставим магический блок обратно
                         level.setBlockAndUpdate(blockPos, BlockRegistry.REGEN_BLOCK.get().defaultBlockState());
 
                         BlockEntity be = level.getBlockEntity(blockPos);
@@ -69,7 +65,6 @@ public class RBEvents {
 
                         marker.discard();
 
-                        // Прерываем стандартную поломку (чтобы блок не исчез и не было ВТОРОГО дропа)
                         return EventResult.interruptFalse();
                     }
                 }
@@ -102,18 +97,22 @@ public class RBEvents {
 
                 level.setBlockAndUpdate(blockPos, BlockRegistry.REGEN_BLOCK.get().defaultBlockState());
                 BlockEntity be = level.getBlockEntity(blockPos);
+
                 if (be instanceof RegeneratingBlockEntity regenBe) {
                     regenBe.setTargetBlock(RBUtils.getNameOfBlock(blockState.getBlock()), timer);
                 }
 
-                Block.dropResources(
-                        blockState,
-                        level,
-                        blockPos,
-                        level.getBlockEntity(blockPos),
-                        serverPlayer,
-                        serverPlayer.getMainHandItem()
-                );
+                if (!serverPlayer.isCreative()) {
+                    Block.dropResources(
+                            blockState,
+                            level,
+                            blockPos,
+                            level.getBlockEntity(blockPos),
+                            serverPlayer,
+                            serverPlayer.getMainHandItem()
+                    );
+                }
+
                 return EventResult.interruptFalse();
             }
             return EventResult.pass();

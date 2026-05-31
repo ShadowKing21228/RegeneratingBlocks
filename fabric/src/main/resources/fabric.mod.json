@@ -34,7 +34,7 @@
     "architectury": ">=9.2.14",
     "fabric-api": "*",
     "jade": "*",
-    "shadowconfig": "*"
+    "shadowconfig": ">=1.2"
   },
   "suggests": {
     "another-mod": "*"

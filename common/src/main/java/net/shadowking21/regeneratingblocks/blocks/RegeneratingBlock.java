@@ -18,16 +18,16 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.shadowking21.regeneratingblocks.blockentities.RegeneratingBlockEntity;
-import net.shadowking21.regeneratingblocks.config.RBConfig;
+import net.shadowking21.regeneratingblocks.config.ConfigInit;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class RegeneratingBlock extends Block implements EntityBlock {
 
-    public static final String DEFAULT_BLOCK = RBConfig.config.get().defaultBlock;
+    public static final String DEFAULT_BLOCK = ConfigInit.config.get().defaultBlock;
 
-    public static final int DEFAULT_TIMER = RBConfig.config.get().defaultTimer;
+    public static final int DEFAULT_TIMER = ConfigInit.config.get().defaultTimer;
 
     public RegeneratingBlock(Properties properties) {
         super(properties);
@@ -74,6 +74,7 @@ public class RegeneratingBlock extends Block implements EntityBlock {
                         .append(Component.literal(String.valueOf(seconds)).withStyle(ChatFormatting.AQUA))
                 .append(Component.translatable("tooltip.regeneratingblocks.second").withStyle(ChatFormatting.AQUA)));
     }
+
 
     public String getRegenerateBlock(ItemStack itemStack)
     {

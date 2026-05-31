@@ -21,7 +21,7 @@ public class BlockRegistry {
 
     public static final RegistrySupplier<Block> REGEN_BLOCK = BLOCKS.register(
             new ResourceLocation(MOD_ID, "regen_block"),
-            () -> new RegeneratingBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(10.0f))
+            () -> new RegeneratingBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(-1f, 1200f))
     );
 
     public static final RegistrySupplier<Item> REGEN_BLOCK_ITEM = ITEMS.register(

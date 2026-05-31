@@ -4,5 +4,6 @@
   "tooltip.regeneratingblocks.second" : " sec.",
   "tooltip.regeneratingblocks.time" : "Time: ",
   "commands.regeneratingblocks.success": "Given %s regenerating block(s) with target %s and timer %s ticks",
-  "jade.regeneratingblocks.remain" : "Remain: "
+  "jade.regeneratingblocks.remain" : "Remain: ",
+  "config.jade.plugin_regeneratingblocks.regen_block_tooltip" : "Regenerating block info"
 }

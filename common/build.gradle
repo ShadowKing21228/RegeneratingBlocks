@@ -1,3 +1,9 @@
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 architectury {
     common rootProject.enabled_platforms.split(',')
 }
@@ -9,4 +15,6 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
 
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
+
+    compileOnly name: 'shadowConfig-common-1.2'
 }

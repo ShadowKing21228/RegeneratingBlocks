@@ -11,7 +11,7 @@ authors = "ShadowKing21"
 description = '''
 Mod that adds a regeneratig block, which can morph to any other block - to refill ores in maps or servers.
 '''
-#logoFile = ""
+logoFile = "assets/regeneratingblocks/icon.png"
 
 [[dependencies.regeneratingblocks]]
 modId = "forge"
@@ -37,7 +37,7 @@ side = "BOTH"
 [[dependencies.regeneratingblocks]]
 modId="shadowconfig"
 mandatory=true
-versionRange="[0,)"
+versionRange="[1.2,)"
 ordering="NONE"
 side="BOTH"
 

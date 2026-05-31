@@ -16,5 +16,8 @@ dependencies {
 
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
-    compileOnly name: 'shadowConfig-common-1.2'
+    compileOnly "curse.maven:shadow-config-1421861:8010570"
+    compileOnly "curse.maven:shadow-config-1421861:8010565"
+
+    //compileOnly name: 'shadowConfig-common-1.2'
 }
